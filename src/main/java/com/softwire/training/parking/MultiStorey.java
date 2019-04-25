@@ -30,4 +30,9 @@ public class MultiStorey {
         }
         return null;
     }
+
+    public ParkingSpace getSpaceContainingVehicleWithRegistration(String registration) {
+        // TODO - replace this!
+        return null;
+    }
 }
