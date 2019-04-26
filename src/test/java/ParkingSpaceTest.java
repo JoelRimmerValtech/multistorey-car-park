@@ -66,7 +66,7 @@ public class ParkingSpaceTest {
     public void parkingSpaceAcceptsVehicleUnderRestrictions() {
 
         // Arrange
-        ParkingSpace parkingSpace = new ParkingSpace(123, 2.0, 2.0, Vehicle.Type.CAR);
+        ParkingSpace parkingSpace = new ParkingSpace(123, 2.0, 2.0);
         Vehicle vehicle = new Vehicle(Vehicle.Type.CAR, "REG", 1.5, 1.5);
 
         // Act
@@ -80,7 +80,7 @@ public class ParkingSpaceTest {
     public void parkingSpaceAcceptsVehicleExactlyOnRestrictions() {
 
         // Arrange
-        ParkingSpace parkingSpace = new ParkingSpace(123, 2.0, 2.0, Vehicle.Type.CAR);
+        ParkingSpace parkingSpace = new ParkingSpace(123, 2.0, 2.0);
         Vehicle vehicle = new Vehicle(Vehicle.Type.CAR, "REG", 2.0, 2.0);
 
         // Act
