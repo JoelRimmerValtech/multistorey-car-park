@@ -1,34 +1,44 @@
 package com.softwire.training.parking;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Floor {
 
+    private int floorNumber;
+    private ArrayList<ParkingSpace> parkingSpaces = new ArrayList<>();
+    private int capacity;
+
     public Floor(int floorNumber) {
-        // TODO - replace this!
+        this.floorNumber = floorNumber;
     }
 
     public int getFloorNumber() {
-        // TODO - replace this!
-        return 0;
+        return floorNumber;
     }
 
     public Collection<ParkingSpace> getParkingSpaces() {
-        // TODO - replace this!
-        return null;
+        return parkingSpaces;
     }
 
     public void addParkingSpace(ParkingSpace parkingSpace) {
-        // TODO - replace this!
+        if (!parkingSpaces.contains(parkingSpace)) {
+            parkingSpaces.add(parkingSpace);
+        }
+        capacity = parkingSpaces.size();
     }
 
     public int getCapacity() {
-        // TODO - replace this!
-        return 0;
+        return capacity;
     }
 
     public int getNumberOfFreeSpaces() {
-        // TODO - replace this!
-        return 0;
+        int numberOfFreeSpaces = 0;
+        for (ParkingSpace parkingSpace:parkingSpaces) {
+            if (parkingSpace.isOccupied()) {
+                numberOfFreeSpaces++;
+            }
+        }
+        return numberOfFreeSpaces;
     }
 }
