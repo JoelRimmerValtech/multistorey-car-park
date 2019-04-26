@@ -2,6 +2,7 @@ package com.softwire.training.parking;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 
 public class Floor {
 
@@ -43,7 +44,12 @@ public class Floor {
     }
 
     public ParkingSpace getNearestFreeSpaceForVehicle(Vehicle vehicle) {
-        // TODO - replace this!
+        parkingSpaces.sort(Comparator.comparing(ParkingSpace::getId));
+        for (ParkingSpace parkingSpace:parkingSpaces) {
+            if (!parkingSpace.isOccupied() && parkingSpace.isVehicleAllowed(vehicle)) {
+                return parkingSpace;
+            }
+        }
         return null;
     }
 }

@@ -1,12 +1,16 @@
 package com.softwire.training.parking;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 
 public class MultiStorey {
 
+    private ArrayList<Floor> multiStoreyLevels;
+
     public MultiStorey(Collection<Floor> floors) {
-        // TODO - replace this!
+        this.multiStoreyLevels = new ArrayList<>(floors);
     }
 
     public MultiStorey(Floor... floors) {
@@ -14,12 +18,16 @@ public class MultiStorey {
     }
 
     public Collection<Floor> getFloors() {
-        // TODO - replace this!
-        return null;
+        return multiStoreyLevels;
     }
 
     public ParkingSpace getNearestSpaceForVehicle(Vehicle vehicle) {
-        // TODO - replace this!
+        multiStoreyLevels.sort(Comparator.comparing(Floor::getFloorNumber));
+        for (Floor floor:multiStoreyLevels) {
+            if (floor.getNearestFreeSpaceForVehicle(vehicle) != null) {
+                return floor.getNearestFreeSpaceForVehicle(vehicle);
+            }
+        }
         return null;
     }
 }
